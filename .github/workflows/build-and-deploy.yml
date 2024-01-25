@@ -32,6 +32,9 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Install OS Dependencies
         run: sudo apt install imagemagick ghostscript poppler-utils
+      - name: Change ImageMagick policy to allow pdf conversion.
+        run: |
+          sudo sed -i 's/^.*policy.*coder.*none.*PDF.*//' /etc/ImageMagick-6/policy.xml
       - name: Install Node Dependencies
         run: bun install
       - name: Setup Pages
