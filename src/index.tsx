@@ -33,9 +33,14 @@ async function otherPdfPreview(outPath: string, document: DocumentRegistration) 
     var pdfImage = new PDFImage(outPath);
 
     pdfImage.convertPage(0).then(function (imagePath) {
+      console.log(`Got image`, imagePath)
       fs.renameSync(imagePath, path.join(outdir, `${slugify(document.meta.title + '-preview', { lower: true })}.jpg`))
 
       resolve()
+    }).catch(e => {
+      console.error("Caught error while generating preview", e);
+
+      resolve();
     });
   })
 }
