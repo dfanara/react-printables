@@ -9,7 +9,7 @@ Hey there! From time to time I make printable page layouts using some combinatio
 
 Rather than constantly loose my document designs, I decided to publish them here to share. The documents here are served as is, with no license restrictions. You are welcome to do with these as you please. Although not required, it would be nice of you to attribute documents back to this website for others to find.
 
-When possible, I will try to include internation page sizes, but I generally only print standard US letter pages, so no promises there.
+When possible, I will try to include international page sizes, but I generally only print standard US letter pages, so no promises there.
 
 ## Printable Pages
 
@@ -37,3 +37,11 @@ When possible, I will try to include internation page sizes, but I generally onl
       </div>
   {% endfor %}
 </div>
+
+## Visitor Metrics
+
+We use Plausible to collect how many times each template is downloaded. All analytics are completely anonymous and tracker free.
+
+<iframe plausible-embed src="https://plausible.io/share/dfanara.github.io%2Freact-printables?auth=DoxeuWbDxDs1kiom8vcZt&embed=true&theme=light&background=transparent" scrolling="no" frameborder="0" loading="lazy" style="width: 1px; min-width: 100%; height: 1600px;"></iframe>
+
+<script async src="https://plausible.io/js/embed.host.js"></script>
