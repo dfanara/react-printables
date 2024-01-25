@@ -29,9 +29,9 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
       - name: Install Dependencies
-        run:
-          - bun install
-          - sudo apt install imagemagick ghostscript
+        run: |
+          bun install
+          sudo apt install imagemagick ghostscript
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
