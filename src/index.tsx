@@ -7,6 +7,7 @@ import pdf from 'pdf-thumbnail';
 import slugify from 'slugify';
 import yaml from 'yaml';
 import type { DocumentRegistration } from './types/documents.types';
+import {PDFImage} from "pdf-image"
 
 async function generatePdfPreview(outPath: string, document: DocumentRegistration) {
   const pdfBuffer = fs.readFileSync(outPath);
@@ -19,11 +20,23 @@ async function generatePdfPreview(outPath: string, document: DocumentRegistratio
       }
     })
       .then((data: any) => {
-        data.on('close', () => { resolve() })
+        data.on('close', () => { setTimeout(() => {resolve()}, 10000) })
 
         data.pipe(fs.createWriteStream(path.join(outdir, `${slugify(document.meta.title + '-preview', { lower: true })}.jpg`)))
       })
       .catch((err: Error) => reject(err))
+  })
+}
+
+async function otherPdfPreview(outPath: string, document: DocumentRegistration) {
+  return new Promise<void>((resolve) => {
+    var pdfImage = new PDFImage(outPath);
+
+    pdfImage.convertPage(0).then(function (imagePath) {
+      fs.renameSync(imagePath, path.join(outdir, `${slugify(document.meta.title + '-preview', { lower: true })}.jpg`))
+
+      resolve()
+    });
   })
 }
 
@@ -39,7 +52,7 @@ for (const document of Documents) {
 
   await ReactPDF.render(<MyDocument meta={document.meta} pageSize={"Letter"} />, outPath);
 
-  await generatePdfPreview(outPath, document)
+  await otherPdfPreview(outPath, document)
 }
 
 const meta = Documents.map(doc => {
