@@ -51,6 +51,8 @@ const meta = Documents.map(doc => {
   }
 })
 
+const collectionOutdir = path.join(import.meta.dirname, 'pages', '_printables');
+
 meta.forEach(doc => {
   const yamlText = yaml.stringify({
     ...doc,
@@ -58,8 +60,11 @@ meta.forEach(doc => {
   })
   const docSlug = slugify(doc.title, { lower: true });
 
-  // fs.mkdirSync(path.join(import.meta.dirname, 'pages', '_printables'))
-  fs.writeFileSync(path.join(import.meta.dirname, 'pages', '_printables', `${docSlug}.md`), `---\n${yamlText}\n---\n`)
+  if (!fs.existsSync(collectionOutdir)) {
+    fs.mkdirSync(collectionOutdir, { recursive: true })
+  }
+
+  fs.writeFileSync(path.join(collectionOutdir, `${docSlug}.md`), `---\n${yamlText}\n---\n`)
 })
 
 
