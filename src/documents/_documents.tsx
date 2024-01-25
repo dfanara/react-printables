@@ -1,9 +1,9 @@
 import type { DocumentRegistration } from "../types/documents.types";
-import { MyDocument, MyDocumentMeta } from "./TestDocument";
+import { IdeaNotebookDocument, IdeaNotebookMeta } from "./IdeaNotebook";
 
 export const Documents: DocumentRegistration[] = [
   {
-    meta: MyDocumentMeta,
-    component: MyDocument
+    meta: IdeaNotebookMeta,
+    component: IdeaNotebookDocument
   }
 ]

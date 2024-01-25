@@ -5,9 +5,9 @@ title: Home
 
 ## Introduction
 
-Hey there! From time to time I make printable page layouts using some combination or react or HTML. Being a software engineer, I find that I can produce these pages faster in code than I can with tools like Microsoft Publisher or Affinity Publisher. My workflow is generally to write the HTML from scratch, then save the page as a PDF for print. I always lose the PDFs or don't have a good process for version management, so with this GitHub repo I can build out these printable documents in GitHub actions and publish them for all to use.
+Hey there! From time to time I make printable page layouts using some combination or react or HTML. Being a software engineer, I find that I can produce these pages faster in code than I can with tools like Microsoft Publisher or Affinity Publisher. 
 
-Some pages I generally use are check lists, column layouts, some concept sketching pages with areas for notes and a title, page #, etc. I like to bundle these pages and save them in binders from time to time, just to archive some of my sketches, measurements, and more.
+Rather than constantly loose my document designs, I decided to publish them here to share. The documents here are served as is, with no license restrictions. You are welcome to do with these as you please. Although not required, it would be nice of you to attribute documents back to this website for others to find.
 
 When possible, I will try to include internation page sizes, but I generally only print standard US letter pages, so no promises there.
 
@@ -18,7 +18,7 @@ When possible, I will try to include internation page sizes, but I generally onl
       <div class="card">
         <a href="{{site.baseurl}}{{printable.url}}">
           <div class="preview">
-            <img src="{{site.baseurl}}{{printable.previewImage}}" />
+            <img src="{{site.baseurl}}{{printable.previewImages[0]}}" />
           </div>
         </a>
         <div class="flex-between">

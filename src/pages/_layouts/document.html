@@ -3,17 +3,21 @@ layout: default
 ---
 
 <h2>Overview</h2>
-{{ page.content }}
-
-{{ page.longContent | markdownify }}
+{{ page.overview | markdownify }}
 
 <h2>Preview</h2>
 
-<object data="{{ site.baseurl }}{{ page.previewPDF }}" type="application/pdf" class="pdf-preview">
-  <p>It appears you don't have a PDF plugin for this browser. You can <a href="path/to/your/file.pdf">click here to download the PDF file.</a></p>
-</object>
+Preview each page in this document. Note that preview images are intended to be lower quality, for best results print the PDFs linked below.
 
-<h2>Downloads</h2>
+<div class="previews">
+  {% for previewImage in page.previewImages %}
+    <a href="#downloads">
+      <img src="{{ site.baseurl }}{{previewImage}}" />
+    </a>
+  {% endfor %}
+</div>
+
+<h2 id="downloads">Downloads</h2>
 
 <p>
   This sheet is totally free for you to copy, print, or distribute as you please. Select an available page size to download the PDF file.
