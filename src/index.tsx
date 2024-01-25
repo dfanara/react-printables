@@ -64,7 +64,7 @@ const meta = Documents.map(doc => {
   const sizes = doc.meta.sizes.map(size => {
     return {
       size,
-      url: `/pdfs/my-document-${size}.pdf`
+      url: `/pdfs/my-document-${slugify(size, { lower: true })}.pdf`
     }
   })
 
