@@ -6,6 +6,26 @@ import fs from 'fs';
 import pdf from 'pdf-thumbnail';
 import slugify from 'slugify';
 import yaml from 'yaml';
+import type { DocumentRegistration } from './types/documents.types';
+
+async function generatePdfPreview(outPath: string, document: DocumentRegistration) {
+  const pdfBuffer = fs.readFileSync(outPath);
+
+  return new Promise<void>((resolve, reject) => {
+    pdf(pdfBuffer, {
+      compress: {
+        type: 'JPEG',  //default
+        quality: 70    //default
+      }
+    })
+      .then((data: any) => {
+        data.on('close', () => { resolve() })
+
+        data.pipe(fs.createWriteStream(path.join(outdir, `${slugify(document.meta.title + '-preview', { lower: true })}.jpg`)))
+      })
+      .catch((err: Error) => reject(err))
+  })
+}
 
 const outdir = path.join(import.meta.dir, "pages", "pdfs");
 
@@ -19,18 +39,7 @@ for (const document of Documents) {
 
   await ReactPDF.render(<MyDocument meta={document.meta} pageSize={"Letter"} />, outPath);
 
-  const pdfBuffer = fs.readFileSync(outPath);
-  
-  pdf(pdfBuffer, {
-    compress: {
-      type: 'JPEG',  //default
-      quality: 70    //default
-    }
-  })
-    .then((data: any) => {
-      data.pipe(fs.createWriteStream(path.join(outdir, `${slugify(document.meta.title + '-preview', { lower: true })}.jpg`)))
-    })
-    .catch((err: Error) => console.log(err))
+  await generatePdfPreview(outPath, document)
 }
 
 const meta = Documents.map(doc => {
@@ -46,7 +55,7 @@ const meta = Documents.map(doc => {
     description: doc.meta.description,
     previewImage: `/pdfs/my-document-preview.jpg`,
     previewPDF: `/pdfs/my-document-letter.pdf`,
-    content: doc.meta.content,
+    longContent: doc.meta.content,
     sizes
   }
 })
