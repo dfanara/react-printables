@@ -26,14 +26,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
       - name: Install Dependencies
         run: |
           bun install
           sudo apt install imagemagick ghostscript
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build Printable Documents
