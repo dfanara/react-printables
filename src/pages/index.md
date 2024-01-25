@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Home
 ---
 
 ## Introduction
@@ -10,6 +11,29 @@ Some pages I generally use are check lists, column layouts, some concept sketchi
 
 When possible, I will try to include internation page sizes, but I generally only print standard US letter pages, so no promises there.
 
-## Documents
+## Printable Pages
 
-1. [Test Document](printables/my-test-document.pdf)
+<div class="document-grid">
+  {% for printable in site.documents %}
+      <div class="card">
+        <a href="{{site.baseurl}}{{printable.url}}">
+          <div class="preview">
+            <img src="{{site.baseurl}}{{printable.previewImage}}" />
+          </div>
+        </a>
+        <div class="flex-between">
+          <div>
+            <a href="{{site.baseurl}}{{printable.url}}">
+              <p class="title">{{printable.title}}</p>
+            </a>
+            <p class="description">{{printable.description}}</p>
+          </div>    
+          <div style="padding: 8px">
+            {% for size in printable.sizes %}
+              <span class="pill-tag">{{size.size}}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+</div>

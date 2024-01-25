@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<h2>Overview</h2>
+{{ page.content }}
+
+{{ page.longContent | markdownify }}
+
+<h2>Preview</h2>
+
+<object data="{{ site.baseurl }}{{ page.previewPDF }}" type="application/pdf" class="pdf-preview">
+  <p>It appears you don't have a PDF plugin for this browser. You can <a href="path/to/your/file.pdf">click here to download the PDF file.</a></p>
+</object>
+
+<h2>Downloads</h2>
+
+<p>
+  This sheet is totally free for you to copy, print, or distribute as you please. Select an available page size to download the PDF file.
+</p>
+<p style="margin-bottom: 0">
+  <strong>Available Sizes:</strong>
+</p>
+<ul>
+  {% for size in page.sizes %}
+    <li><a href="{{ site.baseurl }}{{ size.url }}">{{ size.size }}</a></li>
+  {% endfor %}
+</ul>
+
+<p style="text-align: center">
+  <strong>Looking for more? View all templates on our <a href="{{site.baseurl}}/">Home Page</a>.</strong>
+</p>

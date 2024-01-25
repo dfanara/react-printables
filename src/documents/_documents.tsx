@@ -1,8 +1,9 @@
-import { MyDocument } from "./TestDocument";
+import type { DocumentRegistration } from "../types/documents.types";
+import { MyDocument, MyDocumentMeta } from "./TestDocument";
 
-export const Documents = [
+export const Documents: DocumentRegistration[] = [
   {
-    title: "My Test Document",
+    meta: MyDocumentMeta,
     component: MyDocument
   }
 ]

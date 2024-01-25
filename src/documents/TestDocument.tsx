@@ -1,5 +1,5 @@
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import type { PageSizeProps } from '../types/documents.types';
+import type { DocumentMeta, DocumentProps, ReactPDFPageSize } from '../types/documents.types';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -14,9 +14,20 @@ const styles = StyleSheet.create({
   }
 });
 
-export const MyDocument = ({ pageSize }: PageSizeProps) => (
+export const MyDocumentMeta: DocumentMeta = {
+  title: "My Document",
+  description: "This is my document. It has two columns!",
+  content: `
+Here's a long form description. I wrote this one because it's epic, yknow.
+
+## Markdown worx!
+  `,
+  sizes: ["Letter"]
+}
+
+export const MyDocument = ({ pageSize }: DocumentProps) => (
   <Document>
-    <Page size={pageSize} style={styles.page}>
+    <Page size={pageSize as ReactPDFPageSize} style={styles.page}>
       <View style={styles.section}>
         <Text>Section #1</Text>
       </View>

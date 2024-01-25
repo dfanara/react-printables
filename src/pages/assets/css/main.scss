@@ -1,0 +1,81 @@
+---
+---
+
+:root {
+  --border-radius: 8px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+object.pdf-preview {
+  width: 100%;
+  height: 80vh;
+  max-height: 600px;
+}
+
+.document-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  & > div.card {
+    width: full;
+    border: 1px solid;
+    border-radius: var(--border-radius);
+
+    & .preview {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+
+      & img {
+        aspect-ratio: 8.5 / 11;
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+      }
+    }
+
+    & > a, & a:hover, & a:focus, & a:visited, & a:active {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    & p.title {
+      margin: 0;
+      padding: 8px;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    & p.description {
+      margin: 0;
+      padding: 8px;
+      font-size: 1rem;
+    }
+
+    & .sizes {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+  }
+}
+
+.pill-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #7253ed; /* Blue background */
+  color: white !important;
+  text-decoration: none; 
+  border-radius: 8px;
+  font-size: 0.625em;
+  transition: font-weight 0.3s; /* Smooth transition for hover effect */
+  font-weight: bold;
+
+  &:hover {
+    font-weight: bolder;
+  }
+}

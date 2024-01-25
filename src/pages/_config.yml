@@ -5,10 +5,19 @@ description: >-
 baseurl: "/react-printables"
 url: "https://dfanara.github.io"
 domain: "dfanara.github.io"
-remote_theme: pages-themes/cayman@v0.2.0
+# remote_theme: pages-themes/cayman@v0.2.0
+remote_theme: just-the-docs/just-the-docs@v0.7.0
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-paginate
+collections:
+  printables:
+    output: true
+
+just_the_docs:
+  collections:
+    printables:
+      name: Printables
 
 paginate: 10

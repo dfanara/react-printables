@@ -5,4 +5,5 @@ _site
 vendor
 
 # Printable documents are built at build time
-printables
+pdfs
+_printables
