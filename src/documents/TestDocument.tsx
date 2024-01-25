@@ -19,8 +19,6 @@ export const MyDocumentMeta: DocumentMeta = {
   description: "This is my document. It has two columns!",
   content: `
 Here's a long form description. I wrote this one because it's epic, yknow.
-
-## Markdown worx!
   `,
   sizes: ["Letter"]
 }
