@@ -1,0 +1,14 @@
+title: React Printables
+email: daniel@fanara.co
+description: >-
+  Printable document templates, designed with React.
+baseurl: "/react-printables"
+url: "https://dfanara.github.io"
+domain: "dfanara.github.io"
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-paginate
+
+paginate: 10

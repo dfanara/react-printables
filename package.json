@@ -1,0 +1,26 @@
+{
+  "name": "react-printables",
+  "module": "src/index.tsx",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^3.3.4",
+    "@types/pdf-thumbnail": "^1.0.4",
+    "@types/react": "^18.2.48",
+    "pdf-thumbnail": "^1.0.6",
+    "react": "^18.2.0",
+    "slugify": "^1.6.6"
+  },
+  "scripts": {
+    "build": "bun run build.docs && bun run build.pages",
+    "build.pages": "jekyll build -s src/pages -d build/ $@",
+    "build.docs": "bun run src/index.tsx",
+    "dev": "bun run build.docs && (cd src/pages && bundle exec jekyll serve)",
+    "open": "open build/index.html"
+  }
+}
