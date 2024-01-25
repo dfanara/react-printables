@@ -4,7 +4,7 @@ import yaml from "yaml";
 import fs from 'fs/promises';
 import path from 'path';
 
-const collectionOutdir = path.join(import.meta.dirname, 'pages', '_printables');
+const collectionOutdir = path.join(import.meta.dirname, '..', 'pages', '_printables');
 
 export interface BuildDocumentArgs {
   meta: DocumentMeta,
@@ -50,7 +50,7 @@ export default class JekyllService {
       await fs.mkdir(collectionOutdir, { recursive: true });
     }
 
-    await fs.writeFile(path.join(import.meta.dirname, "..", "pages", "_printables", `${titleSlug}.md`), jekyllPageContent);
+    await fs.writeFile(path.join(collectionOutdir, `${titleSlug}.md`), jekyllPageContent);
   }
 
   public static getInstance() {
