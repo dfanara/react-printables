@@ -1,5 +1,5 @@
-import type { DocumentMeta } from "../types/documents.types"
-import { DocumentMetaProvider } from "./contexts/DocumentMetaContext"
+import type { DocumentMeta } from "../../types/documents.types"
+import { DocumentMetaProvider } from "../contexts/DocumentMetaContext"
 
 interface DocumentProps {
   children?: React.ReactNode
@@ -34,7 +34,7 @@ export default function Document({ children, meta }: DocumentProps) {
           `}
         </script>
       </head>
-      <body className="bg-white">
+      <body>
         <DocumentMetaProvider meta={meta}>
           {children}
         </DocumentMetaProvider>

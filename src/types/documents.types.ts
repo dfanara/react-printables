@@ -1,3 +1,5 @@
+import type { PDFMargin } from "puppeteer";
+
 export type PageSize = "Letter" | "Legal";
 
 export interface DocumentMeta {
@@ -6,6 +8,7 @@ export interface DocumentMeta {
   overview: string;
   sizes: PageSize[];
   oritentation: "portrait" | "landscape";
+  margin?: PDFMargin;
 }
 
 export interface DocumentProps {

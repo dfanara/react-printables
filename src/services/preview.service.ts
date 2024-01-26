@@ -3,7 +3,6 @@ import type { DocumentMeta } from "../types/documents.types";
 import fs from 'fs/promises'
 import path from 'path'
 import slugify from "slugify";
-import { usePageDimensions } from "../components/hooks/usePageDimensionsCSS";
 
 export default class PreviewService {
   private static instance: PreviewService;

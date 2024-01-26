@@ -1,7 +1,8 @@
 import dedent from 'dedent';
-import Document from '../components/Document';
+import Document from '../components/layout/Document';
 import type { DocumentMeta, DocumentProps } from '../types/documents.types';
-import Page from '../components/Page';
+import Page from '../components/layout/Page';
+import useBaseMargin from '../components/hooks/useBaseMargin';
 
 export const IdeaNotebookMeta: DocumentMeta = {
   title: "Idea Notebook",
@@ -16,7 +17,8 @@ export const IdeaNotebookMeta: DocumentMeta = {
     To use this booklet, I print multiple copies of a specific page type that I want. For instance, I usually print 10 or so of the sketch pages at a time.
   `,
   sizes: ["Letter", "Legal"],
-  oritentation: "portrait"
+  oritentation: "portrait",
+  margin: useBaseMargin("0.25in")
 }
 
 export const IdeaNotebookDocument = ({ meta }: DocumentProps) => (

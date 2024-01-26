@@ -7,10 +7,7 @@ import fs from "fs";
 export class PDFService {
   private static instance: PDFService;
 
-  private constructor() {
-
-  }
-
+  private constructor() {}
 
   public async renderDocument(meta: DocumentMeta, pageSize: PageSize, document: React.ComponentType<DocumentProps>, outputFile: string) {
     try {
@@ -24,14 +21,9 @@ export class PDFService {
       const pdf = await page.pdf({
         format: pageSize,
         landscape: meta.oritentation === "landscape",
-        margin: {
-          top: "0.5in",
-          bottom: "0.5in",
-          left: "0.5in",
-          right: "0.5in"
-        },
         printBackground: true,
         omitBackground: false,
+        margin: meta.margin
       })
       fs.writeFileSync(outputFile, pdf);
 
