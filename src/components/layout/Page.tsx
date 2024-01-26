@@ -22,7 +22,7 @@ export default function Page({ children, margin }: PageProps) {
   }
 
   return (
-    <div className="h-screen w-screen overflow-hidden relative" style={{ pageBreakAfter: "always", pageBreakInside: "avoid", ...marginStyles }}>
+    <div className="h-screen w-screen relative" style={{ pageBreakAfter: "always", pageBreakInside: "avoid", ...marginStyles }}>
       {children}
     </div>
   )

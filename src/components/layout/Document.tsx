@@ -19,19 +19,33 @@ export default function Document({ children, meta }: DocumentProps) {
           rel="stylesheet"
         />
         <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-          {`
+        <script dangerouslySetInnerHTML={{__html: `
             tailwind.config = {
               theme: {
                 extend: {
                   fontFamily: {
                     sans: ["Roboto"],
                     mono: ["Roboto Mono"],
-                  }
+                  },
+                  colors: {
+                    gray: {
+                      50: '#f7f7f7',  // Very light gray
+                      100: '#efefef',
+                      200: '#e0e0e0',
+                      300: '#c6c6c6',
+                      400: '#a8a8a8',
+                      500: '#8d8d8d',  // Medium gray
+                      600: '#6f6f6f',
+                      700: '#525252',
+                      800: '#393939',
+                      900: '#262626',  // Very dark gray
+                    },
+                  },
                 }
               }
             }
-          `}
+          `}}>
+          
         </script>
       </head>
       <body>
