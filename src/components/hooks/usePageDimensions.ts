@@ -11,14 +11,16 @@ interface CSSDimensions {
 }
 
 export function usePageDimensions(pageSize: PageSize, orientation: "portrait" | "landscape") {
-  let size: Dimensions;
+  const defaultSize: Dimensions = { width: 8.5, height: 11 };
 
-  if (pageSize === "Letter") {
-    size = { width: 8.5, height: 11 };
-  }else {
-    // Some default value I spose
-    size = { width: 595, height: 842 };
-  }
+  const sizeMap: Record<PageSize, Dimensions> = {
+    Letter: defaultSize,
+    Legal: { width: 8.5, height: 14 },
+    "5x7": { width: 5, height: 7 },
+    "3x5": { width: 3, height: 5 },
+  };
+
+  let size = sizeMap[pageSize] ?? defaultSize;
 
   if (orientation === "landscape") {
     size = { height: size.width, width: size.height };

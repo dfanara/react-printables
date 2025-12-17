@@ -18,6 +18,8 @@ for (const document of Documents) {
   let previewImageLink: string | null = null;
   let pdfsBySize: Map<PageSize, string> = new Map();
 
+  const previewSize = document.meta.sizes.includes("Letter") ? "Letter" : document.meta.sizes[0];
+
   for (const size of document.meta.sizes) {
     const docSlug = slugify(`${document.meta.title}-${size}`, { lower: true });
     const outPath = path.join(outdir, `${docSlug}.pdf`)
@@ -26,7 +28,7 @@ for (const document of Documents) {
     await PDFService.getInstance().renderDocument(document.meta, size, document.component, outPath);
     pdfsBySize.set(size, docUrl);
 
-    if (size === "Letter") {
+    if (size === previewSize) {
       previewImages = await PreviewService.getInstance().generatePreviews(document.meta, outPath, outdir);
       previewImageLink = docUrl;
     }

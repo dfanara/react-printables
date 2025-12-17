@@ -17,7 +17,7 @@ export const IdeaNotebookMeta: DocumentMeta = {
     To use this booklet, I print multiple copies of a specific page type that I want. For instance, I usually print 10 or so of the sketch pages at a time.
   `,
   sizes: ["Letter", "Legal"],
-  oritentation: "portrait",
+  orientation: "portrait",
   margin: useBaseMargin("0.25in")
 }
 

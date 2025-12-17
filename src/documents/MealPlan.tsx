@@ -15,7 +15,7 @@ export const MealPlanMeta: DocumentMeta = {
     cooking after work alot easier because you already know what you're going to make.
   `,
   sizes: ["Letter"],
-  oritentation: "portrait",
+  orientation: "portrait",
   margin: useBaseMargin("0.5in")
 }
 

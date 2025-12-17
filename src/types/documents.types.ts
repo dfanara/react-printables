@@ -1,13 +1,13 @@
 import type { PDFMargin } from "puppeteer";
 
-export type PageSize = "Letter" | "Legal";
+export type PageSize = "Letter" | "Legal" | "5x7" | "3x5";
 
 export interface DocumentMeta {
   title: string;
   description: string;
   overview: string;
   sizes: PageSize[];
-  oritentation: "portrait" | "landscape";
+  orientation: "portrait" | "landscape";
   margin?: PDFMargin;
 }
 

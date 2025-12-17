@@ -28,7 +28,7 @@ export const SevenColumnLedgerMeta: DocumentMeta = {
     The margins on this document are setup in a way that allows you to print it double sided, and keep it in a binder. I prefer to bundle things together in a plastic report cover, but admittedly it can be hard to write on the back of the page when doing this.
   `,
   sizes: ["Legal", "Letter"],
-  oritentation: "landscape"
+  orientation: "landscape"
 }
 
 export const SevenColumnLedgerDocument = ({ meta }: DocumentProps) => {
