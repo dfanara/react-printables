@@ -7,6 +7,7 @@ import path from "path";
 
 const PAGE_DIMENSIONS: Record<PageSize, { width: number; height: number }> = {
   Letter: { width: 8.5, height: 11 },
+  "Half Letter": { width: 5.5, height: 8.5 },
   Legal: { width: 8.5, height: 14 },
   "5x7": { width: 5, height: 7 },
   "3x5": { width: 3, height: 5 },

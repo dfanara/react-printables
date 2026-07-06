@@ -1,6 +1,6 @@
 import type { PDFMargin } from "puppeteer";
 
-export type PageSize = "Letter" | "Legal" | "5x7" | "3x5";
+export type PageSize = "Letter" | "Half Letter" | "Legal" | "5x7" | "3x5";
 
 export interface DocumentMeta {
   title: string;
@@ -17,6 +17,14 @@ export interface DocumentProps {
 }
 
 export interface DocumentRegistration {
-  meta: DocumentMeta
-  component: React.ComponentType<DocumentProps>
+  meta: DocumentMeta;
+  component: React.ComponentType<DocumentProps>;
+}
+
+export interface CardDefinition {
+  name: string;
+  front: React.ComponentType;
+  back: React.ComponentType;
+  width: number;
+  height: number;
 }

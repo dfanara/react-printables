@@ -26,6 +26,7 @@
     "build": "bun run build.docs && bun run build.pages",
     "build.pages": "jekyll build -s src/pages -d build/ $@",
     "build.docs": "bun run src/index.tsx",
+    "build.cards": "bun run src/cards.tsx",
     "dev": "bun run build.docs && (cd src/pages && bundle exec jekyll serve)",
     "clean": "rm -rf src/pages/pdfs && rm -rf src/pages/_printables",
     "watch.docs": "nodemon -e \"tsx\" --exec bun run build.docs",

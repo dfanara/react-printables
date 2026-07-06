@@ -10,11 +10,15 @@ interface CSSDimensions {
   width: string;
 }
 
-export function usePageDimensions(pageSize: PageSize, orientation: "portrait" | "landscape") {
+export function usePageDimensions(
+  pageSize: PageSize,
+  orientation: "portrait" | "landscape",
+) {
   const defaultSize: Dimensions = { width: 8.5, height: 11 };
 
   const sizeMap: Record<PageSize, Dimensions> = {
     Letter: defaultSize,
+    "Half Letter": { width: 5.5, height: 8.5 },
     Legal: { width: 8.5, height: 14 },
     "5x7": { width: 5, height: 7 },
     "3x5": { width: 3, height: 5 },
@@ -29,11 +33,14 @@ export function usePageDimensions(pageSize: PageSize, orientation: "portrait" | 
   return size;
 }
 
-export function usePageDimensionsCSS(pageSize: PageSize, orientation: "portrait" | "landscape"): CSSDimensions {
+export function usePageDimensionsCSS(
+  pageSize: PageSize,
+  orientation: "portrait" | "landscape",
+): CSSDimensions {
   const inches = usePageDimensions(pageSize, orientation);
 
   return {
     height: `${inches.height}in`,
     width: `${inches.width}in`,
-  }
+  };
 }
